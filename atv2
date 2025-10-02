@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class atv2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String usuario,senha;
+
+        do {
+            System.out.print("digite o nome de usuario: ");
+            usuario = scanner.next();
+
+            System.out.print("digite a senha: ");
+            senha = scanner.next();
+
+            if (usuario.equals(senha)) {
+                System.out.println("a senha e igual ao nome do usuario tente novamente");
+            }
+        } while (usuario.equals(senha));
+
+        System.out.println("seu nome de usuario e: "+ usuario);
+        System.out.println("sua senha e "+ senha);
+        scanner.close();
+    }
+}
