@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+public class lista4 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String nome;
+        int idade;
+        double salario;
+        char sexo,estadoCivil;
+
+        do {
+            System.out.print("digite o seu nome: ");
+            nome = scanner.next();
+
+            if (nome.length() <= 3)
+                System.out.print("nome deve ter mais de 3 caracteres");
+
+        } while (nome.length() <= 3);
+
+
+        do {
+            System.out.print("digite sua idade: ");
+            idade = scanner.nextInt();
+
+            if (idade < 0 || idade > 150)
+                System.out.println("idade deve estar entre 0 e 150");
+
+            }while (idade < 0 || idade > 150);
+
+
+        do {
+            System.out.print("digite seu salario: ");
+            salario = scanner.nextInt();
+
+            if (salario <= 0)
+                System.out.println("seu salario deve ser maior que 0");
+
+        }while (salario <= 0);
+
+
+        do {
+            System.out.print("digite o sexo (f/m): ");
+            sexo = scanner.next().toLowerCase().charAt(0);
+            if (sexo != 'f' && sexo != 'm') {
+                System.out.println("Sexo deve ser 'f' ou 'm'!");
+            }
+        } while (sexo != 'f' && sexo != 'm');
+
+
+        do {
+            System.out.print("digite o estado civil (s/c/v/d): ");
+            estadoCivil = scanner.next().toLowerCase().charAt(0);
+            if (estadoCivil != 's' && estadoCivil != 'c' && estadoCivil != 'v' && estadoCivil != 'd') {
+                System.out.println("estado civil deve ser 's', 'c', 'v' ou 'd'!");
+            }
+        } while (estadoCivil != 's' && estadoCivil != 'c' && estadoCivil != 'v' && estadoCivil != 'd');
+
+
+        scanner.close();
+    }
+}
