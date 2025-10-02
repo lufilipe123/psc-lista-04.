@@ -1,0 +1,83 @@
+import java.util.Scanner;
+
+public class lista4 {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        char repetir;
+
+
+        do {
+
+            int populacaoA;
+            do {
+                System.out.print("Digite a população do país A (maior que 0): ");
+                populacaoA = scanner.nextInt();
+                if (populacaoA <= 0) {
+                    System.out.println("População deve ser maior que zero!");
+                }
+            } while (populacaoA <= 0);
+
+
+            double taxaA;
+            do {
+                System.out.print("Digite a taxa de crescimento do país A (em %, ex: 3.5): ");
+                taxaA = scanner.nextDouble() / 100;
+                if (taxaA <= 0) {
+                    System.out.println("Taxa deve ser maior que zero!");
+                }
+            } while (taxaA <= 0);
+
+
+
+            int populacaoB;
+            do {
+                System.out.print("Digite a população do país B (maior que 0): ");
+                populacaoB = scanner.nextInt();
+                if (populacaoB <= 0) {
+                    System.out.println("População deve ser maior que zero!");
+                }
+            } while (populacaoB <= 0);
+
+
+            double taxaB;
+            do {
+                System.out.print("Digite a taxa de crescimento do país B (em %, ex: 1.5): ");
+                taxaB = scanner.nextDouble() / 100;
+                if (taxaB <= 0) {
+                    System.out.println("Taxa deve ser maior que zero!");
+                }
+            } while (taxaB <= 0);
+
+            int anos = 0;
+            int popAFinal = populacaoA;
+            int popBFinal = populacaoB;
+
+            System.out.println("população inicial:");
+            System.out.println("país A: " + populacaoA + " habitantes (taxa: " + (taxaA * 100) + "% ao ano)");
+            System.out.println("país B: " + populacaoB + " habitantes (taxa: " + (taxaB * 100) + "% ao ano)");
+
+            while (popAFinal <= popBFinal && anos < 1000) { // Limite de 1000 anos para evitar loop infinito
+                popAFinal += (int)(popAFinal * taxaA);
+                popBFinal += (int)(popBFinal * taxaB);
+                anos++;
+            }
+
+            if (anos >= 1000) {
+                System.out.println("\nem 1000 anos, a população do país A não ultrapassou a do país B.");
+            } else {
+                System.out.println("\nserão necessários " + anos + " anos para a população do país A");
+                System.out.println("ultrapassar ou igualar a população do país B.");
+                System.out.println("população final após " + anos + " anos:");
+                System.out.println("país A: " + popAFinal + " habitantes");
+                System.out.println("país B: " + popBFinal + " habitantes");
+            }
+
+            System.out.print("\ndeseja realizar outro cálculo? (s/n): ");
+            repetir = scanner.next().toLowerCase().charAt(0);
+
+        } while (repetir == 's');
+    }
+
+}
