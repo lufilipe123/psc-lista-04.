@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class atv10 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Gerador de intervalo entre dois números");
+        System.out.print("Digite o primeiro número inteiro: ");
+        int num1 = scanner.nextInt();
+        
+        System.out.print("Digite o segundo número inteiro: ");
+        int num2 = scanner.nextInt();
+        
+        System.out.println("\nNúmeros no intervalo entre " + num1 + " e " + num2 + ":");
+        
+        int inicio, fim;
+        if (num1 <= num2) {
+            inicio = num1;
+            fim = num2;
+        } else {
+            inicio = num2;
+            fim = num1;
+        }
+        
+        for (int i = inicio; i <= fim; i++) {
+            System.out.print(i + " ");
+        }
+        
+        scanner.close();
+    }
+}
